@@ -1,0 +1,22 @@
+{
+  "name": "juxta-proxy-server",
+  "version": "1.0.0",
+  "description": "a proxy server for my juxta-position app",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/m-tambo/juxta-proxy-server.git"
+  },
+  "author": "m-tambo",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/m-tambo/juxta-proxy-server/issues"
+  },
+  "homepage": "https://github.com/m-tambo/juxta-proxy-server#readme",
+  "dependencies": {
+    "express": "^4.15.2"
+  }
+}
