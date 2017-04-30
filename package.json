@@ -19,6 +19,7 @@
   "homepage": "https://github.com/m-tambo/juxta-proxy-server#readme",
   "dependencies": {
     "cors": "^2.8.3",
+    "dotenv": "^4.0.0",
     "express": "^4.15.2",
     "request": "^2.81.0",
     "request-promise": "^4.2.0"
