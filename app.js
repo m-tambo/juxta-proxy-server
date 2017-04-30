@@ -3,19 +3,17 @@ const app = express()
 const port = process.env.PORT || 3030;
 const cors = require('cors')
 const rp = require('request-promise')
+require('dotenv').config()
 
+const nerdAPI = process.env.NERD_API_KEY
 
-// app.use((req, res, next) => {
-//   req.setHeader({'Access-Control-Allow-Origin': '*}');
-//   next();
-// });
 
 app.use(cors()) // allows cross origin sharing
 
 // / weekly projections by position
 app.get('/nerdprojections/:pos/:wk', function(req, res) {
   rp({
-  uri: `https://www.fantasyfootballnerd.com/service/weekly-projections/json/iz33m4ducg4h/${req.params.pos}/${req.params.wk}`,
+  uri: `https://www.fantasyfootballnerd.com/service/weekly-projections/json/${nerdAPI}/${req.params.pos}/${req.params.wk}`,
   json: true
 })
   .then((data) => {
@@ -26,7 +24,7 @@ app.get('/nerdprojections/:pos/:wk', function(req, res) {
 // weekly rankings by position
 app.get('/nerdrankings/:pos/:wk', function(req, res) {
   rp({
-  uri: `https://www.fantasyfootballnerd.com/service/weekly-rankings/json/iz33m4ducg4h/${req.params.pos}/${req.params.wk}/1/`,
+  uri: `https://www.fantasyfootballnerd.com/service/weekly-rankings/json/${nerdAPI}/${req.params.pos}/${req.params.wk}/1/`,
   json: true
 })
   .then((data) => {
@@ -57,8 +55,11 @@ app.get('/espnexperts/:wk/:pos/:exp', function(req, res) {
 })
 
 
-
-
 app.listen(port, () => {
   console.log(`Listening on port ${port}`);
 });
+
+// app.use((req, res, next) => {
+//   req.setHeader({'Access-Control-Allow-Origin': '*}');
+//   next();
+// });
