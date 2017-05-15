@@ -54,6 +54,9 @@ app.get('/espnexperts/:wk/:pos/:exp', function(req, res) {
   })
 })
 
+app.get('/', function(req, res){
+  res.send('Juxta-position proxy server');
+});
 
 app.listen(port, () => {
   console.log(`Listening on port ${port}`);
