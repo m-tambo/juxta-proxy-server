@@ -59,7 +59,8 @@ app.get('/', function(req, res){
 });
 
 app.listen(port, () => {
-  console.log(`Listening on port ${port}`);
+  console.log(`Listening on port ${port}`)
+  console.log(`still listening...`)
 });
 
 // app.use((req, res, next) => {
