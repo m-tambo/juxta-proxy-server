@@ -1,6 +1,6 @@
 const express = require('express')
 const app = express()
-const port = process.env.PORT || 3030;
+const port = process.env.PORT || 4040;
 const cors = require('cors')
 const rp = require('request-promise')
 require('dotenv').config()
@@ -47,6 +47,17 @@ app.get('/weekstats/:wk', function(req, res) {
 app.get('/espnexperts/:wk/:pos/:exp', function(req, res) {
   rp({
   uri: `http://api.fantasy.nfl.com/v1/players/editorweekranks?season=2016&week=${req.params.wk}&position=${req.params.pos}&format=json&editorId=${req.params.exp}&count=100`,
+  json: true
+})
+  .then((data) => {
+    res.json(data)
+  })
+})
+
+// espn player news
+app.get('/playernews', function(req, res) {
+  rp({
+  uri: `http://api.fantasy.nfl.com/v1/players/news?format=json&count=200`,
   json: true
 })
   .then((data) => {
