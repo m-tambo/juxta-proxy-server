@@ -1,12 +1,14 @@
-const express = require('express')
-const app = express()
+const express = require('express');
+const app = express();
 const port = process.env.PORT || 4040;
-const cors = require('cors')
-const rp = require('request-promise')
-require('dotenv').config()
+const cors = require('cors');
+const rp = require('request-promise');
+const keepServerAwake = require('./keepServerAwake.js');
+require('dotenv').config();
 
-const nerdAPI = process.env.NERD_API_KEY
+const nerdAPI = process.env.NERD_API_KEY;
 
+keepServerAwake();
 
 app.use(cors()) // allows cross origin sharing
 
