@@ -8,7 +8,7 @@ require('dotenv').config();
 
 const nerdAPI = process.env.NERD_API_KEY;
 
-keepServerAwake();
+// keepServerAwake();
 
 app.use(cors()) // allows cross origin sharing
 
